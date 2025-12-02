@@ -1,0 +1,1 @@
+"""RAG Travel Assistant Application."""
