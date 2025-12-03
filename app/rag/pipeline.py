@@ -62,7 +62,6 @@ class RAGPipeline:
 
             # Extract key information
             country = content.get("country", "Unknown")
-            title = content.get("title", "")
             main_content = content.get("content", "")
 
             # Format visa requirements
@@ -234,16 +233,21 @@ Keep it SHORT, SIMPLE, and HELPFUL!"""
                 logger.info(f"Token usage: {usage_metadata}")
 
                 # Report usage to LangFuse
-                from langfuse.decorators import langfuse_context
+                try:
+                    from langfuse.decorators import langfuse_context
 
-                if langfuse_context.get_current_observation_id():
-                    langfuse_context.update_current_observation(
-                        model=usage_metadata["model"],
-                        usage={
-                            "input": usage_metadata["input_tokens"],
-                            "output": usage_metadata["output_tokens"],
-                            "total": usage_metadata["total_tokens"],
-                        },
+                    if langfuse_context.get_current_observation_id():
+                        langfuse_context.update_current_observation(
+                            model=usage_metadata["model"],
+                            usage={
+                                "input": usage_metadata["input_tokens"],
+                                "output": usage_metadata["output_tokens"],
+                                "total": usage_metadata["total_tokens"],
+                            },
+                        )
+                except ImportError:
+                    logger.warning(
+                        "LangFuse decorators not available, skipping usage reporting"
                     )
 
             logger.info("Response generated successfully")
