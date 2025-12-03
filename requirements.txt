@@ -4,13 +4,10 @@ uvicorn[standard]>=0.38.0
 
 # LLM & AI Frameworks
 google-generativeai>=0.8.5
-langchain>=0.3.27
-langchain-google-genai>=2.0.10
 langgraph>=1.0.1
 
 # Vector Database
 qdrant-client>=1.16.1
-langchain-qdrant>=0.2.1
 
 # Embeddings & NLP
 sentence-transformers>=5.1.2
@@ -23,6 +20,3 @@ ddtrace>=4.0.0
 pydantic>=2.12.5
 pydantic-settings>=2.12.0
 python-dotenv>=1.2.1
-
-# HTTP Client
-httpx>=0.28.1
