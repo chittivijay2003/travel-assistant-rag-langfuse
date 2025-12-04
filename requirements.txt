@@ -1,22 +1,25 @@
 # Core Web Framework
-fastapi>=0.123.0
-uvicorn[standard]>=0.38.0
+fastapi==0.123.0
+uvicorn[standard]==0.38.0
 
 # LLM & AI Frameworks
-google-generativeai>=0.8.5
-langgraph>=1.0.1
+google-generativeai==0.8.5
+langgraph==1.0.1
 
 # Vector Database
-qdrant-client>=1.16.1
+qdrant-client==1.16.1
 
 # Embeddings & NLP
-sentence-transformers>=5.1.2
+sentence-transformers==5.1.2
 
-# Observability & Monitoring
-langfuse>=3.10.3
-ddtrace>=4.0.0
+# Observability
+langfuse==3.10.3
 
 # Configuration & Environment
-pydantic>=2.12.5
-pydantic-settings>=2.12.0
-python-dotenv>=1.2.1
+pydantic==2.12.5
+pydantic-settings==2.12.0
+python-dotenv==1.2.1
+typing-extensions==4.12.2
+
+# Testing
+requests==2.32.3
